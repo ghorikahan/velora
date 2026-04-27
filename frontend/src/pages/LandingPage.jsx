@@ -7,6 +7,7 @@ const LandingPage = () => {
   const [billing, setBilling] = useState('monthly');
 
   const goToSignup = () => navigate('/signup');
+  const goToLogin = () => navigate('/login');
 
   // ── Pricing data ──────────────────────────────────────────────
   const plans = [
@@ -57,7 +58,7 @@ const LandingPage = () => {
             <a href="#blog">Blog</a>
           </div>
           <div className="nav-actions flex" style={{ gap: '12px' }}>
-            <button className="btn btn-ghost" onClick={goToSignup}>Login</button>
+            <button className="btn btn-ghost" onClick={goToLogin}>Login</button>
             <button className="btn btn-primary" onClick={goToSignup}>Sign Up</button>
           </div>
         </div>
