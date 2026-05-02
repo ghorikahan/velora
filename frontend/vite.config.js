@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    outDir: 'build', // Output to 'build' folder instead of 'dist'
+    outDir: 'dist', // Changed from 'build' back to 'dist' for Vercel compatibility
   },
   server: {
     port: 5177,
