@@ -20,9 +20,9 @@ const FamilyPage = () => {
       <Sidebar user={user} />
 
       {/* Main */}
-      <div style={{flex:1,display:'flex',flexDirection:'column',height:'100%',overflow:'hidden'}}>
+      <div style={{flex:1,display:'flex',flexDirection:'column',height:'100%',overflow:'hidden',paddingTop:'56px'}} className="md:pt-0">
         {/* Header */}
-        <header style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'16px 32px',background:'#fff',borderBottom:'1px solid #f0f0f0',flexShrink:0}}>
+        <header style={{display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:'12px',padding:'12px 16px',background:'#fff',borderBottom:'1px solid #f0f0f0',flexShrink:0}} className="md:px-8">
           <div style={{display:'flex',alignItems:'center',gap:'32px'}}>
             <div>
               <div style={{fontSize:'10px',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.1em',marginBottom:'4px'}}>Velora / Family Council</div>
@@ -46,11 +46,11 @@ const FamilyPage = () => {
         </header>
 
         {/* Content */}
-        <div style={{flex:1,overflowY:'auto',padding:'24px 32px 40px'}}>
+        <div style={{flex:1,overflowY:'auto',padding:'16px 16px 40px'}} className="md:px-8">
           <div style={{maxWidth:'960px',margin:'0 auto'}}>
 
             {/* Top Row: Shared Wallet + Spending Score */}
-            <div style={{display:'grid',gridTemplateColumns:'1.6fr 1fr',gap:'20px',marginBottom:'24px'}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))',gap:'20px',marginBottom:'24px'}}>
               {/* Shared Wallet */}
               <div style={{background:'#fff',borderRadius:'16px',border:'1px solid #f0f0f0',padding:'28px 32px',position:'relative',overflow:'hidden'}}>
                 <div style={{position:'absolute',right:'24px',top:'24px',opacity:0.06}}>
@@ -108,7 +108,7 @@ const FamilyPage = () => {
             </div>
 
             {/* Middle Row: Individual Savings + Approvals */}
-            <div style={{display:'grid',gridTemplateColumns:'1.2fr 1fr',gap:'20px',marginBottom:'24px'}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))',gap:'20px',marginBottom:'24px'}}>
               {/* Individual Savings */}
               <div>
                 <h3 style={{fontSize:'18px',fontWeight:700,color:'#111827',marginBottom:'16px'}}>Individual Savings</h3>

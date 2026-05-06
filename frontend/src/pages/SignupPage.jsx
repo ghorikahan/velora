@@ -197,7 +197,7 @@ const SignupPage = () => {
       {toast && <Toast key={toast.key} message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* ── LEFT PANEL ────────────────────────────── */}
-      <div className="w-[42%] bg-[#127475] p-10 flex flex-col justify-between relative text-white">
+      <div className="hidden md:flex w-[42%] bg-[#127475] p-10 flex-col justify-between relative text-white">
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
           <div className="text-white">
@@ -316,8 +316,8 @@ const SignupPage = () => {
 
               <div>
                 <label className="block text-[12px] font-medium text-[#4B5563] mb-2">Family size</label>
-                <div className="flex gap-3">
-                  {['1 - 2', '3 - 4', '5 - 6', '6+'].map(size => (
+              <div className="flex gap-3 flex-wrap">
+                {['1 - 2', '3 - 4', '5 - 6', '6+'].map(size => (
                     <button
                       key={size}
                       type="button"

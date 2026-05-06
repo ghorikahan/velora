@@ -53,9 +53,9 @@ const BudgetPage = () => {
       <Sidebar user={user} />
 
       {/* Main */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden">
+      <div className="flex-1 flex flex-col h-full overflow-hidden pt-14 md:pt-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100 shrink-0">
+        <header className="flex flex-wrap items-center justify-between gap-3 px-4 md:px-8 py-4 bg-white border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-4">
             <div>
               <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Velora / Budget Planner</div>
@@ -78,11 +78,11 @@ const BudgetPage = () => {
         </header>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto px-8 py-6">
+        <div className="flex-1 overflow-y-auto px-4 md:px-8 py-5 md:py-6">
           <div className="max-w-[1020px] mx-auto">
 
             {/* Summary Cards */}
-            <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'16px',marginBottom:'24px'}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))',gap:'16px',marginBottom:'24px'}}>
               <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm" style={{minHeight:'120px'}}>
                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Total Budget</div>
                 <div className="text-[24px] font-extrabold text-gray-900 mb-1">₹65,000</div>
@@ -180,7 +180,7 @@ const BudgetPage = () => {
             </div>
 
             {/* Categories */}
-            <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'24px'}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))',gap:'16px',marginBottom:'24px'}}>
               {cats.map((c, i) => (
                 <div key={i} className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'12px'}}>

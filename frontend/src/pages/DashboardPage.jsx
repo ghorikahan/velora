@@ -33,9 +33,9 @@ const DashboardPage = () => {
       <Sidebar user={user} />
 
       {/* ── MAIN CONTENT ──────────────────────────────────────────────────────── */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8]">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8] pt-14 md:pt-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-10 py-5 bg-[#FDFCF8] shrink-0 border-b border-transparent">
+        <header className="flex items-center justify-between px-4 md:px-10 py-4 md:py-5 bg-[#FDFCF8] shrink-0 border-b border-transparent">
           {/* Top Links */}
           <div className="flex items-center gap-10">
             <div>
@@ -66,7 +66,7 @@ const DashboardPage = () => {
         </header>
 
         {/* Scrollable Body Area */}
-        <div className="flex-1 overflow-y-auto px-10 pt-6 pb-12">
+        <div className="flex-1 overflow-y-auto px-4 md:px-10 pt-6 pb-12">
           <div className="max-w-[1000px] mx-auto">
             
             {/* Title Section */}
@@ -84,7 +84,7 @@ const DashboardPage = () => {
             </div>
 
             {/* Banner Section */}
-            <div className="bg-[#0b5353] rounded-3xl p-8 mb-10 flex text-white relative shadow-sm overflow-hidden">
+            <div className="bg-[#0b5353] rounded-3xl p-5 md:p-8 mb-10 flex flex-col md:flex-row text-white relative shadow-sm overflow-hidden">
               {/* Background gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#127475] to-[#0b5353] opacity-50 pointer-events-none"></div>
               
@@ -107,7 +107,7 @@ const DashboardPage = () => {
                 </div>
               </div>
               
-              <div className="w-[340px] bg-white/10 rounded-[24px] p-6 z-10 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-lg">
+              <div className="w-full md:w-[340px] bg-white/10 rounded-[24px] p-6 z-10 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-lg mt-4 md:mt-0">
                 <div className="flex justify-between items-start">
                   <span className="text-[14px] font-medium text-white/90">Daily Burn Rate</span>
                   <span className="bg-[#32E0C4] text-[#0b5353] px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">Optimal</span>

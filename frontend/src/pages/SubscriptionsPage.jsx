@@ -31,9 +31,9 @@ const SubscriptionsPage = () => {
       <Sidebar user={user} />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8]">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8] pt-14 md:pt-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-10 py-5 shrink-0">
+        <header className="flex flex-wrap items-center justify-between gap-3 px-4 md:px-10 py-4 md:py-5 shrink-0">
           <div>
             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Velora / Subscriptions</div>
             <h1 className="text-[24px] font-bold text-[#127475] leading-tight">Subscription Graveyard</h1>
@@ -51,11 +51,11 @@ const SubscriptionsPage = () => {
         </header>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-10 pt-2 pb-12">
+        <div className="flex-1 overflow-y-auto px-4 md:px-10 pt-2 pb-12">
           <div className="max-w-[1100px] mx-auto">
 
             {/* Top Stats Row */}
-            <div className="grid grid-cols-3 gap-5 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
               {/* Total Annual Leakage */}
               <div className="bg-gradient-to-br from-[#0b5353] to-[#127475] rounded-2xl p-6 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4"/>
@@ -103,7 +103,7 @@ const SubscriptionsPage = () => {
             </div>
 
             {/* Subscription Cards Grid */}
-            <div className="grid grid-cols-3 gap-5 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
               {subscriptions.map(sub => (
                 <div key={sub.id} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-[0_2px_16px_rgb(0,0,0,0.02)] flex flex-col">
                   {/* Top row: icon + status */}
@@ -159,7 +159,7 @@ const SubscriptionsPage = () => {
             </div>
 
             {/* Bottom Banner - Smart One-Tap Cancellation */}
-            <div className="bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] rounded-2xl p-6 flex items-center justify-between text-white">
+            <div className="bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4 text-white">
               <div className="flex items-center gap-4">
                 <div className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0 backdrop-blur-sm border border-white/10">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>

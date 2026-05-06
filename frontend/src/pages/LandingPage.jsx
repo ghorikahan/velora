@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import SEO from '../components/SEO';
@@ -7,6 +7,7 @@ import dashboardPreview from '../assets/dashboard_preview.png';
 const LandingPage = () => {
   const navigate = useNavigate();
   const [billing, setBilling] = useState('monthly');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const goToSignup = () => navigate('/signup');
   const goToLogin = () => navigate('/login');
@@ -59,22 +60,55 @@ const LandingPage = () => {
             </div>
             <span style={{ fontWeight: 800, fontSize: '24px', color: '#127475', letterSpacing: '-0.5px' }}>Velora</span>
           </div>
+
+          {/* Desktop nav links */}
           <div className="nav-links flex">
             <a href="#features">Features</a>
             <a href="#how">How it Works</a>
             <a href="#pricing">Pricing</a>
             <a href="#blog">Blog</a>
           </div>
+
+          {/* Desktop nav actions */}
           <div className="nav-actions flex" style={{ gap: '12px' }}>
             <Button variant="text" sx={{ color: '#127475', fontWeight: 600 }} onClick={goToLogin}>Login</Button>
             <Button variant="contained" sx={{ bgcolor: '#127475', borderRadius: '12px', px: 3, py: 1 }} onClick={goToSignup}>Sign Up</Button>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}
+            className="nav-actions-mobile"
+            aria-label="Toggle menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#127475" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              {mobileMenuOpen
+                ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
+                : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>
+              }
+            </svg>
+          </button>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {mobileMenuOpen && (
+          <div style={{ background: '#fff', borderTop: '1px solid var(--border)', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <a href="#features" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-secondary)', fontWeight: 500, fontSize: '15px', padding: '8px 0' }}>Features</a>
+            <a href="#how" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-secondary)', fontWeight: 500, fontSize: '15px', padding: '8px 0' }}>How it Works</a>
+            <a href="#pricing" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-secondary)', fontWeight: 500, fontSize: '15px', padding: '8px 0' }}>Pricing</a>
+            <a href="#blog" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-secondary)', fontWeight: 500, fontSize: '15px', padding: '8px 0' }}>Blog</a>
+            <div style={{ display: 'flex', gap: '12px', paddingTop: '8px' }}>
+              <button onClick={goToLogin} style={{ flex: 1, padding: '10px', border: '1px solid #127475', background: 'transparent', color: '#127475', borderRadius: '10px', fontWeight: 600, cursor: 'pointer' }}>Login</button>
+              <button onClick={goToSignup} style={{ flex: 1, padding: '10px', background: '#127475', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 600, cursor: 'pointer' }}>Sign Up</button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="hero-section">
-        <div className="container flex items-center" style={{ gap: '60px' }}>
+        <div className="container flex items-center" style={{ gap: '60px', flexWrap: 'wrap' }}>
           <div className="hero-content">
             <div className="badge">FINALLY ONE FOR THE WHOLE HOME</div>
             <h1 className="hero-title">Finally — One Place For Every Rupee Your Family Spends</h1>
@@ -82,7 +116,7 @@ const LandingPage = () => {
               Automated UPI tracking, family budget sharing, and AI-powered savings goals.
               Built for the modern Indian household to grow your wealth together.
             </p>
-            <div className="flex" style={{ gap: '16px' }}>
+            <div className="flex" style={{ gap: '16px', flexWrap: 'wrap' }}>
               <Button 
                 variant="contained" 
                 size="large"
@@ -100,15 +134,15 @@ const LandingPage = () => {
               >
                 Start Free Now
               </Button>
-              <button className="btn btn-outline" style={{ padding: '16px 32px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button className="btn btn-outline" style={{ padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" /><polygon points="10 8 16 12 10 16 10 8" />
                 </svg>
                 Watch How It Works
               </button>
             </div>
           </div>
-          <div className="hero-image-container">
+          <div className="hero-image-container" style={{ minWidth: '280px' }}>
             <img src={dashboardPreview} alt="Dashboard Preview" className="hero-image" />
           </div>
         </div>
@@ -116,7 +150,7 @@ const LandingPage = () => {
 
       {/* ── TRUST BAR ──────────────────────────────────────────── */}
       <div className="trust-bar" style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '24px 0' }}>
-        <div className="container flex justify-between items-center" style={{ opacity: 0.6, fontSize: '13px', fontWeight: 600 }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', opacity: 0.6, fontSize: '13px', fontWeight: 600, flexWrap: 'wrap', gap: '12px' }}>
           {[
             { icon: <><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></>, label: 'AES-256 SECURED' },
             { icon: <><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></>, label: 'IOS / ANDROID / WEB' },
@@ -155,8 +189,8 @@ const LandingPage = () => {
       {/* ── HOW IT WORKS ───────────────────────────────────────── */}
       <section id="how" className="section-padding" style={{ background: '#fff' }}>
         <div className="container text-center">
-          <h2 style={{ fontSize: '40px', marginBottom: '80px' }}>Simple as 1 — 2 — 3</h2>
-          <div className="flex justify-between items-start" style={{ position: 'relative' }}>
+          <h2 style={{ fontSize: '40px', marginBottom: '60px' }}>Simple as 1 — 2 — 3</h2>
+          <div className="flex justify-between items-start" style={{ position: 'relative', flexWrap: 'wrap', gap: '40px' }}>
             {[
               { n: '1', title: 'Setup Profile', desc: 'Add your family members and set roles like "Contributor" or "Viewer".' },
               { n: '2', title: 'Sync Accounts', desc: 'Connect bank accounts and UPI apps for automatic transaction fetch.' },
@@ -181,7 +215,7 @@ const LandingPage = () => {
             <h2 style={{ fontSize: '40px' }}>See How Smarter Families Save</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gridTemplateRows: 'repeat(2, 300px)', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             {/* AI Spending Coach */}
             <div className="card" style={{ gridRow: 'span 1', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: 'var(--primary)', color: 'white', border: 'none' }}>
               <div>
@@ -197,7 +231,7 @@ const LandingPage = () => {
             </div>
 
             {/* Family Council */}
-            <div className="card" style={{ gridRow: 'span 2', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                   <span style={{ fontSize: '24px' }}>👨‍👩‍👧‍👦</span>
@@ -242,7 +276,7 @@ const LandingPage = () => {
       <section className="section-padding text-center">
         <div className="container">
           <h2 style={{ fontSize: '40px', marginBottom: '60px' }}>Designed for Every Generation</h2>
-          <div className="grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '32px' }}>
             {generations.map((g, i) => (
               <div key={i} className="text-center">
                 <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--accent-light)', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px' }}>{g.icon}</div>
@@ -257,7 +291,7 @@ const LandingPage = () => {
       {/* ── TESTIMONIALS ───────────────────────────────────────── */}
       <section className="section-padding" style={{ background: 'var(--primary)', color: 'white' }}>
         <div className="container">
-          <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px', marginBottom: '80px' }}>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px', marginBottom: '60px' }}>
             {[
               { quote: "Finally, I don't need to ask my husband for every bank OTP. Loans are on our monthly dashboard. It's life-changing.", author: '— Priya S., Mumbai' },
               { quote: "The AI coach actually stopped me from a ₹2,400 purchase to ensure my holiday goal stays on track. It's actually a friend.", author: '— Rahul M., Bengaluru' },
@@ -270,7 +304,7 @@ const LandingPage = () => {
               </div>
             ))}
           </div>
-          <div className="grid text-center" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+          <div className="grid text-center" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '24px' }}>
             {[
               { num: '₹400Cr+', label: 'VOLUME TRACKED' },
               { num: '1.2M+', label: 'FAMILIES IN INDIA' },
@@ -311,7 +345,7 @@ const LandingPage = () => {
           </div>
 
           {/* Cards */}
-          <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px', textAlign: 'left', marginTop: '32px' }}>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', textAlign: 'left', marginTop: '32px' }}>
             {plans.map((plan) => {
               const cur = billing === 'yearly' ? plan.yearly : plan.monthly;
               return (
@@ -364,7 +398,7 @@ const LandingPage = () => {
       <footer style={{ borderTop: '1px solid var(--border)' }}>
         {/* Yearly upsell */}
         <div style={{ background: 'var(--primary)', color: 'white', padding: '60px 0' }}>
-          <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '40px' }}>
+          <div className="container" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '40px', flexWrap: 'wrap' }}>
             <div>
               <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', padding: '4px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, letterSpacing: '0.05em', marginBottom: '16px' }}>
                 💰 SAVE 20% — YEARLY PLANS
@@ -399,7 +433,7 @@ const LandingPage = () => {
 
         {/* Links */}
         <div className="section-padding" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-          <div className="container grid" style={{ gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: '40px' }}>
+          <div className="container grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '40px' }}>
             <div>
               <div className="logo flex items-center" style={{ gap: '10px', marginBottom: '20px', cursor: 'pointer' }} onClick={() => navigate('/')}>
                 <div style={{ width: '28px', height: '28px', background: '#127475', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

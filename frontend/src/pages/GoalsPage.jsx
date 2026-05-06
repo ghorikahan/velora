@@ -47,9 +47,9 @@ const GoalsPage = () => {
       <Sidebar user={user} />
 
       {/* MAIN */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8]">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8] pt-14 md:pt-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-10 py-5 shrink-0 border-b border-gray-100/60">
+        <header className="flex flex-wrap items-center justify-between gap-3 px-4 md:px-10 py-4 md:py-5 shrink-0 border-b border-gray-100/60">
           <div>
             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Velora / Savings Goals</div>
             <h1 className="text-[32px] font-bold text-gray-900 leading-tight">Savings Goals</h1>
@@ -71,7 +71,7 @@ const GoalsPage = () => {
         </header>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-10 pt-8 pb-12">
+        <div className="flex-1 overflow-y-auto px-4 md:px-10 pt-6 md:pt-8 pb-12">
           <div className="max-w-[1100px] mx-auto">
 
             {/* AI Coach Insight */}
@@ -87,7 +87,7 @@ const GoalsPage = () => {
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-5 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-[0_2px_16px_rgb(0,0,0,0.02)]">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-9 h-9 rounded-xl bg-[#E5F5F4] text-[#127475] flex items-center justify-center">
@@ -128,8 +128,8 @@ const GoalsPage = () => {
             </div>
 
             {/* Filters */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+              <div className="flex gap-2 flex-wrap">
                 {filters.map(f => (
                   <button key={f} onClick={() => setFilter(f)}
                     className={`px-4 py-2 rounded-full text-[12px] font-semibold transition-all ${filter===f ? 'bg-[#127475] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-50'}`}>
@@ -199,7 +199,7 @@ const GoalsPage = () => {
         </div>
 
         {/* Floating Add Button */}
-        <button className="fixed bottom-8 left-[290px] bg-[#127475] text-white px-6 py-3.5 rounded-2xl text-[14px] font-semibold shadow-[0_8px_30px_rgba(18,116,117,0.4)] hover:shadow-[0_12px_40px_rgba(18,116,117,0.5)] hover:bg-[#0e5d5e] transition-all flex items-center gap-2 z-50">
+        <button className="fixed bottom-8 right-8 md:left-[290px] md:right-auto bg-[#127475] text-white px-6 py-3.5 rounded-2xl text-[14px] font-semibold shadow-[0_8px_30px_rgba(18,116,117,0.4)] hover:shadow-[0_12px_40px_rgba(18,116,117,0.5)] hover:bg-[#0e5d5e] transition-all flex items-center gap-2 z-50">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Add New Goal
         </button>

@@ -23,9 +23,9 @@ const AICoachPage = () => {
       <Sidebar user={user} />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8]">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#FDFCF8] pt-14 md:pt-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-10 py-6 shrink-0">
+        <header className="flex flex-wrap items-center justify-between gap-3 px-4 md:px-10 py-4 md:py-6 shrink-0">
           <div className="flex items-center gap-4">
             <div>
               <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Velora / Insights</div>
@@ -48,11 +48,11 @@ const AICoachPage = () => {
         </header>
 
         {/* Scrollable Area */}
-        <div className="flex-1 overflow-y-auto px-10 pb-10">
+        <div className="flex-1 overflow-y-auto px-4 md:px-10 pb-10">
           <div className="max-w-[1200px] mx-auto space-y-8">
             
             {/* Master Insight Row */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="col-span-2 bg-white rounded-[32px] p-8 border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.02)] relative overflow-hidden">
                 <div className="flex items-center gap-2 text-[#127475] mb-4">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path></svg>
@@ -87,7 +87,7 @@ const AICoachPage = () => {
             </div>
 
             {/* Three Detail Cards */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Anomaly Alert */}
               <div className="bg-white rounded-[24px] p-6 border-l-4 border-red-500 shadow-sm border border-gray-50">
                 <div className="flex items-center gap-3 mb-4">
@@ -144,7 +144,7 @@ const AICoachPage = () => {
             </div>
 
             {/* Spending DNA and Chat Row */}
-            <div className="grid grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               {/* Spending DNA */}
               <div className="col-span-3 bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm">
                 <h3 className="text-[18px] font-bold text-gray-900 mb-8">Spending DNA</h3>
